@@ -19,12 +19,12 @@ type ProductInterface interface {
 	GetId() string
 	GetName() string
 	GetStatus() string
-	GetPrice() float32
+	GetPrice() float64
 }
 
 type ProductServiceInterface interface {
 	Get(id string) (ProductInterface, error)
-	Create(name string, price float32) (ProductInterface, error)
+	Create(name string, price float64) (ProductInterface, error)
 	Enable(product ProductInterface) (ProductInterface, error)
 	Disable(product ProductInterface) (ProductInterface, error)
 }
@@ -50,7 +50,7 @@ const (
 type Product struct {
 	ID     string  `valid:"uuidv4"`
 	Name   string  `valid:"required"`
-	Price  float32 `valid:"float,optional"`
+	Price  float64 `valid:"float,optional"`
 	Status string  `valid:"required"`
 }
 
@@ -114,6 +114,6 @@ func (p *Product) GetStatus() string {
 	return p.Status
 }
 
-func (p *Product) GetPrice() float32 {
+func (p *Product) GetPrice() float64 {
 	return p.Price
 }

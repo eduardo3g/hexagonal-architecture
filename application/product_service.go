@@ -14,7 +14,7 @@ func (s *ProductService) Get(id string) (ProductInterface, error) {
 	return product, nil
 }
 
-func (s *ProductService) Create(name string, price float32) (ProductInterface, error) {
+func (s *ProductService) Create(name string, price float64) (ProductInterface, error) {
 	product := NewProduct()
 	product.Name = name
 	product.Price = price
